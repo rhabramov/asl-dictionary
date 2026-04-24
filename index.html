@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My ASL Dictionary</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <h1>ASL Dictionary</h1>
+      <p class="subtitle">A personal collection of American Sign Language signs</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search words…" aria-label="Search words" />
+    </div>
+
+    <div class="grid" id="word-grid">
+      <!-- Cards are injected by JS -->
+    </div>
+
+    <p class="empty-state" id="empty-state" hidden>No words match your search.</p>
+  </main>
+
+  <footer>
+    <p>Built with ♥ for learning ASL</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --surface: #f7f7f5;
+  --border: #e8e8e4;
+  --text: #111111;
+  --text-muted: #888880;
+  --accent: #111111;
+  --accent-hover: #333333;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.07);
+  --shadow-hover: 0 8px 28px rgba(0,0,0,0.13);
+  --transition: 0.22s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+header {
+  border-bottom: 1.5px solid var(--border);
+  padding: 2.5rem 1.5rem 2rem;
+  text-align: center;
+}
+
+.header-inner { max-width: 640px; margin: 0 auto; }
+
+h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+/* ── Main ── */
+main {
+  flex: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  width: 100%;
+}
+
+/* ── Search ── */
+.controls {
+  margin-bottom: 2rem;
+}
+
+#search {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+#search::placeholder { color: var(--text-muted); }
+
+#search:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.07);
+}
+
+/* ── Grid ── */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  cursor: default;
+  animation: fadeUp 0.35s ease both;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: #ccc;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card-media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder shown when no GIF is set */
+.card-media .placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.card-media .placeholder svg {
+  opacity: 0.35;
+}
+
+.card-body {
+  padding: 0.9rem 1rem 1rem;
+  border-top: 1.5px solid var(--border);
+}
+
+.card-word {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.card-note {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.card-note a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.card-note a:hover {
+  color: var(--text);
+}
+
+/* ── Empty State ── */
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 0;
+  font-size: 0.95rem;
+}
+
+/* ── Footer ── */
+footer {
+  border-top: 1.5px solid var(--border);
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── Mobile tweaks ── */
+@media (max-width: 480px) {
+  header { padding: 1.75rem 1.25rem 1.5rem; }
+}
